@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+Enter a number:
+<input id="txt"/>
+<button onclick="show()">Show</button><br/><br/>
+<p id="result"></p>
+<script>
+    function show() {
+        let numbers = Number(document.getElementById("txt").value);
+        let amount = 0;
+        let result;
+
+
+        for (i = 2; i < numbers; i++) {
+            if (isSNT(i) === true) {
+                amount = amount + 1;
+                result = i;
+                document.getElementById("result").innerHTML += result + "; ";
+            }
+        }
+    }
+
+    function isSNT(N) {
+        if(N < 2){
+            return false;
+        }
+        for (let i = 2; i < (N-1); i++){
+            if (N % i === 0){
+                return false;
+            }
+        }
+        return true;
+    }
+</script>
+</body>
+</html>
